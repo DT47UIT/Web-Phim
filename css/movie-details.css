@@ -47,7 +47,7 @@
   --transition-2: 0.25s ease-in;
     /** spacing*/
 
-  --section-padding: 100px;
+  --section-padding: 20px;
 }
 
 * {
@@ -68,7 +68,6 @@ body {
 }
 
 a {
-
     text-decoration: none;
     color: unset;
 }
@@ -469,6 +468,7 @@ a.movie-item:hover {
 }
 
 .section-header {
+    position: relative;
     margin-bottom: 30px;
     padding-left: 20px;
     text-transform: uppercase;
@@ -679,16 +679,32 @@ footer .content {
 \*---------------------------*/
 
 .movie-detail{
-    background:url("./images/wanda-banner.jpg") no-repeat;
     background-size: cover;
     background-position: center;
     padding-top: 120px;
     padding-bottom: var(--section-padding);
 }
 
+.movie-detail::before{
+    position: fixed;
+    content: "";
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(5, 29, 54, 0.75);
+    
+}
+
+.movie-detail{
+    background-size: cover;
+    background-position: center;
+    padding-top: 120px;
+    padding-bottom: var(--section-padding);
+}
+
+
 .movie-detail-banner{
     position: relative;
-    background: var(--gunmetal-1);
     max-width: 350px;
     margin-inline: auto;
     border-radius: 6px;
@@ -781,8 +797,8 @@ footer .content {
   }
   
 .storyline {
-    color: var(--gray-x);
-    font-size: var(--fs-9);
+    color: var(--text-color);
+    font-size: var(--fs-7);
     font-weight: var(--fw-500);
     line-height: 1.8;
     margin-bottom: 40px;
@@ -832,41 +848,9 @@ button {
     cursor: pointer;
 
 }
-/*
-.details-actions .btn-primary{
-    font-size: 10px;
-    padding: 13px 26px;
-    letter-spacing: 0;
-    background: transparent;
-}
-.details-actions .btn {
-        color: var(--white);
-    font-size: var(--fs-11);
-    font-weight: var(--fw-700);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 16px 30px;
- 
-    border-radius: 50px;
-    transition: var(--transition-1);
-}
-.details-actions .btn-primary {
-    font-size: 10px;
-    padding: 13px 26px;
-    letter-spacing: 0;
-    background: transparent;
-  }
-  
-  .details-actions .btn-primary:is(:hover, :focus) { background: var(--citrine); }
-  .details-actions .title{
-    color: var(--white);
-    font-weight: var(--fw-700);
-  }
-  */
-  .details-actions .text {
+
+
+.details-actions .text {
     font-size: var(--fs-11);
     color: var(--gainsboro);
 }
@@ -876,10 +860,6 @@ button {
 }
 .date-time{
     gap: 15px;
-}
-
-p.text-center{
-    text-align: justify;
 }
 .badge-wrapper, .ganre-wrapper, .date-time {
     display: flex;
@@ -895,6 +875,54 @@ p.text-center{
     font-size: var(--fs-9);
     font-weight: 900;
 }
+/*title movie*/
+.title-movie{
+    margin-bottom: 1.5rem;
+    overflow: overlay;
+}
+
+.title-movie dt{
+    width: 120px;
+    text-transform: uppercase;
+    color: var(--text-color);
+    font-size:var(--fs-5);
+    font-weight: bold;
+
+}
+
+.title-movie dd,
+.title-movie dt{
+    margin-bottom: 0.25rem;
+}
+.title-movie dd{
+    float: left;
+}
+
+.title-movie dt{
+    float: left;
+    clear: left;
+}
+.title-movie a{
+    font-weight: 700;
+    color: #c0392b;
+    font-size: var(--fs-5);
+    line-height: 18px;
+    overflow: hidden;
+    max-height: 36px;
+}
+.title-movie dd{
+    font-weight: 700;
+    color: #c0392b;
+    font-size: var(--fs-5);
+    max-height: 36px;
+}
+
+
+/*csv*/
+.csv a:not(:last-child):after,
+.csv span:not(:last-child):after {
+  content: ", ";
+}
 .download-btn {
     max-width: max-content;
     background: var(--main-color);
@@ -909,6 +937,19 @@ p.text-center{
     letter-spacing: 5px;
     border-radius: 6px;
 }
+
+/*css DienVien*/
+section .cast .container {
+    position: relative;
+    display: contents;
+    align-items: center;
+    gap: 50px;
+  }
+.movies-slide.carousel-nav-center.owl-carousel.owl-loaded.owl-drag{
+    padding-left: 120px;
+    padding-right: 120px;
+}
+
 @media (min-width: 550px) {
     :root {
 
@@ -983,7 +1024,7 @@ p.text-center{
   .movie-detail .container {
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 50px;
   }
 

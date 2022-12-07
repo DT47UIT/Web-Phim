@@ -3,10 +3,6 @@
     flex-wrap: wrap;
     margin: 0 -15px;
 }
-.footerdetails{
-    display: flex;
-    margin: 0 -15px;
-}
 
 [class*="col-"] {
     padding: 0 15px;
